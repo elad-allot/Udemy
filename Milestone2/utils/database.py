@@ -62,8 +62,7 @@ def delete_book(att, att_value):
                     is_deleted = True;
             except KeyError:
                 raise KeyError(f'{att} Is not a key')
-            finally:
-                return is_deleted
+        return is_deleted
 
 
 def find_book(att, att_value):

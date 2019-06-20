@@ -5,7 +5,7 @@ def print_my_books(books):
     if books is not None and len(books) > 0:
         print("\tMy Books:")
         for book in books:
-            print(f'\t\tTitle: {book["name"]}, Author: {book["author"]} have I read this book: {book["read"]}')
+            print(f'\t\tTitle: {book["name"]}, Author: {book["author"]}, have I read this book: {book["read"]}')
     else:
         print("No Books")
 
@@ -20,9 +20,9 @@ def delete_book():
     att_value = input("what book would you like to delete?")
     try:
         if DB.delete_book(att, att_value):
-            print("Book {att_value} was deleted")
+            print(f"Book {att_value} was deleted")
         else:
-            print("Book {att_value} was not found")
+            print(f"Book {att_value} was not found")
     except TypeError as err:
         print(err)
     except FileExistsError:
@@ -34,9 +34,9 @@ def mark_book_read():
     att_value = input("what book did you read?")
     try:
         if DB.mark_as_read(DB.find_book(att, att_value)):
-            print("Book {att_value} was updated")
+            print(f"Book {att_value} was updated")
         else:
-            print("Book {att_value} was not found")
+            print(f"Book {att_value} was not found")
     except TypeError as err:
         print(err)
     except FileExistsError:
@@ -62,7 +62,7 @@ def main():
 
 
 def print_menu():
-    return "1. Add New Book\n2. List All Books\n3. Mark Book as Read\n4. Delete Book\n5. Exit"
+    return "1. Add New Book\n2. List All Books\n3. Mark Book as Read\n4. Delete Book\n5. Exit\t"
 
 
 if __name__ == '__main__':
