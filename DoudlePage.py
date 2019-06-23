@@ -473,16 +473,17 @@
 #     for j in range(10):
 #         for k in range(13):
 #             csv_writ((i, j, k))
+#
+#
+#
+# my_list = []
+#
+# def add_to_list(r):
+#     my_list.append(r)
+#
+# print(my_list)
+#
+# add_to_list({'bla':3 , 'blas3': 5})
+#
+# print(my_list)
 
-
-
-my_list = []
-
-def add_to_list(r):
-    my_list.append(r)
-
-print(my_list)
-
-add_to_list({'bla':3 , 'blas3': 5})
-
-print(my_list)

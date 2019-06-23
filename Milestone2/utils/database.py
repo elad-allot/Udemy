@@ -11,12 +11,12 @@ def get_all():
     """
     try:
         with open(MY_LIBRARY, 'r') as f:
-            return list_to_library(list(csv.reader(f))[1:])
+            return _list_to_library(list(csv.reader(f))[1:])
     except FileNotFoundError:
         pass  # return None
 
 
-def list_to_library(book_list):
+def _list_to_library(book_list):
     try:
         return [{'name': book[0], 'author': book[1], 'read': book[2]} for book in book_list]
     except IndexError:
