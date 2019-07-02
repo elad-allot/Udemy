@@ -487,3 +487,43 @@
 #
 # print(my_list)
 
+
+
+import sqlite3
+
+conn = sqlite3.connect('data.db')
+
+cursor = conn.cursor()
+
+# cursor.execute('create table elad(bla int, bla2 int)')
+cursor.execute("""CREATE TABLE IF NOT EXISTS books (name text, author text, read integer) """)
+conn.commit()
+
+conn.close()
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
