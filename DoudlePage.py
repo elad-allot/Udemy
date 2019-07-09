@@ -486,44 +486,121 @@
 # add_to_list({'bla':3 , 'blas3': 5})
 #
 # print(my_list)
+#
+#
+#
+# import sqlite3
+#
+# conn = sqlite3.connect('data.db')
+#
+# cursor = conn.cursor()
+#
+# # cursor.execute('create table elad(bla int, bla2 int)')
+# cursor.execute("""CREATE TABLE IF NOT EXISTS books (name text, author text, read integer) """)
+# conn.commit()
+#
+# conn.close()
+#
+# def hunded_numbers():
+#     i = 0
+#     while i < 100:
+#         yield i
+#         i += 1
+# g = hunded_numbers()
+# print(next(g))
+#
+#
+# class MyFirdtGen:
+#     def __init__(self, bound):
+#         self.num = 0
+#         self.bound = bound
+#
+#     def __next__(self):
+#         if self.num < self.bound:
+#             cur = self.num
+#             self.num += 1
+#             return cur
+#         else:
+#             raise StopIteration
+#
+#     def __iter__(self):
+#         return self
+#
+#
+# g = MyFirdtGen(100)
+# t = None
+# for num in g:
+#     print(next(g))
+#
+# g = MyFirdtGen(100)
+#
+# t = next(g)
+# try:
+#     while True:
+#         print(next(g))
+# except StopIteration:
+#     print("End!")
+#
+# l = [num for num in g]
+# print ((l))
+#
+#
+# def start_with_e (friends:
+#     return friend.startswith('E')
+#
+#
+# friends = ['Elad', 'Sivan', 'Dvir', 'Eldad']
+# start_with_e = filter(lambda friend: friend.startswith('E'), friends)
+#
+# print(list(start_with_e))
+#
+#
+# friends = ['Elad', 'Sivan', 'Dvir', 'Eldad']
+# friends_lower = map(lambda bla: bla.lower(), friends)
+#
+# print(list(friends_lower))
+# x = 0
+# x = x + 3
+#
+#
+#
+#
+#
+# def add_to_middle(s1, s2):
+#     s11 = s1[:int(len(s1)/2)]
+#     s12 = s1[int(len(s1)/2):len(s1)]
+#     return s11 + s2 + s12
+#
+#
+# s1 = 'ac'
+# s2 = 'b'
+# for i in range(10):
+#     s1 = (add_to_middle(s1, s2))
+# print(s1)
+#
+#
+# def create_account(name: str, holder: str, account_holders: list = None):
+#     print(id(account_holders))
+#     if not account_holders:
+#         account_holders = []
+#     account_holders.append(holder)
+#     return {
+#         'name': name,
+#         'main account holder': holder,
+#         'account holders': account_holders
+#     }
+#
+#
+# l = []
+# print(id(l))
+# a1 = create_account('checking', 'Elad', l)
+# print(a1)
+# a2 = create_account('savings', 'jen')
+# print(a1)
+# print(a2)
 
 
 
-import sqlite3
-
-conn = sqlite3.connect('data.db')
-
-cursor = conn.cursor()
-
-# cursor.execute('create table elad(bla int, bla2 int)')
-cursor.execute("""CREATE TABLE IF NOT EXISTS books (name text, author text, read integer) """)
-conn.commit()
-
-conn.close()
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+import  collections

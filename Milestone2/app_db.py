@@ -18,8 +18,8 @@ def get_all():
     books = []
     with DatabaseConnection(HOST) as db:
         query = "SELECT name, author, read FROM myLib"
-        myLib = db.execute(query)
-        for book in myLib:
+        my_lib = db.execute(query)
+        for book in my_lib:
             books.append(book)
     return books
 
@@ -46,6 +46,7 @@ def delete_book(book_name):
 
 
 
+
 def main():
     while True:
         user_input = input(print_menu())
@@ -66,7 +67,7 @@ def main():
 
 def init():
     with DatabaseConnection(HOST) as db:
-        query = "CREATE TABLE IF NOT EXISTS myLib(name TEXT, author TEXT, read INTEGER )"
+        query: str = "CREATE TABLE IF NOT EXISTS myLib(name TEXT, author TEXT, read INTEGER )"
         db.execute(query)
 
 
