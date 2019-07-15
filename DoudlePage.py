@@ -598,9 +598,103 @@
 # a2 = create_account('savings', 'jen')
 # print(a1)
 # print(a2)
+#
+#
+# """
+# def dynamic_pprint(headers: Iterator, rows: Iterator):
+#     header_string = '|'
+#     row_string = '|'
+#     spacer = '|'
+#     num_cols = len(headers)
+#     for h in headers:
+#         header_string = header_string + h + (' ' * (35 - len(h))) + "|"
+#         spacer = spacer + '='*35 + '|'
+#     print(header_string)
+#     print(spacer)
+#     for i in range(num_cols):
+#         row_string = row_string + "{" + str(i) + ":35}|"
+#     for row in rows:
+#         print(row_string.format(*row))
+# """
+#
+# from collections import defaultdict, OrderedDict, namedtuple, deque
+#
+# coworkers = [('Rolf', 'MIT'), ('Jen', 'Oxford'), ('Rolf', 'Cambridge'), ('Charlie', 'Manchester')]  # Rolf got a master's
+#
+# new_dict = {}
+#
+# for name, uni in coworkers:
+#     if name not in new_dict:
+#         new_dict[name] = []
+#     new_dict[name].append(uni)
+#
+# print(new_dict)
+#
+# dict2 = defaultdict(list)
+# for name, uni in coworkers:
+#     dict2[name].append(uni)
+# print(dict2)
+#
+# for i in dict2:
+#     print(dict2[i])
+#
+# from datetime import datetime, timezone, timedelta
+#
+# print(datetime.now())
+# t1 = datetime.now()
+# t2 = datetime.now(timezone.utc)
+# print(datetime.now(timezone.utc))
+#
+# print(t1 + timedelta(hours=-2))
+# print(t1 + timedelta(hours=2, minutes=-2))
+#
+# print(t1.strftime('%d-%m-%Y %H:%M:%S'))
+#
+#
+#
+# import time
+#
+# def pow(limit):
+#     return [x**2 for x in range(limit)]
+#
+# # st = time.time()
+# # pow(100)
+# # et = time.time()
+# # print(st)
+# # print(et)
+# # print(et - st)
+#
+#
+# import timeit
+#
+# # print(timeit.timeit("[x**2 for x in range(10)]", number=300000))
+#
+# y = (lambda x**2: x for x in range(1,11))
+# # x = lambda x**2: for x in range(10)
+# ts1 = timeit.repeat("lambda x**2:x for x in range(10)", repeat=10)
+# ts2 = timeit.repeat("[x**2 for x in range(10)]", repeat=10)
+# # print (ts1)
+# x1 = 0
+# x2 = 0
+# for t1, t2 in ts1, ts2:
+#     x1 = x1 + t1
+#     x2 = x1 + t2
+# print(x1/len(ts1))
+# print(x1/len(ts2))
+#
+#
+# # timeit.timeit()
+
+import re
+from _testcapi import matmulType
+
+email = " sdfjhasdf@adsflkajsd.com"
+exp = '[a-z]+'
+
+matches = re.finditer(exp, email)
+
+for i in matches:
+    print(i[0])
 
 
 
-
-
-import  collections
