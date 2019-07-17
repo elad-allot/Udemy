@@ -683,18 +683,30 @@
 # print(x1/len(ts2))
 #
 #
-# # timeit.timeit()
+# timeit.timeit()
+#
+# import re
+# from _testcapi import matmulType
+#
+#
+# email = " sdfjhasdf@adsflkajsd.com"
+# exp = '[a-z]+'
+#
+# matches = re.finditer(exp, email)
+#
+# for i in matches:
+#     print(i[0])
+#
 
-import re
-from _testcapi import matmulType
-
-email = " sdfjhasdf@adsflkajsd.com"
-exp = '[a-z]+'
-
-matches = re.finditer(exp, email)
-
-for i in matches:
-    print(i[0])
+import logging
+logging.basicConfig(level=logging.DEBUG, format="%(asctime)s,%(msecs)d %(name)s %(levelname)s: %(message)s")
+logger = logging.getLogger("test_logger")
+# logging.basicConfig(level=logging.INFO)
+logger.debug("debug")
+logger.info("info")
+logger.warning("warning")
+logger.error("Error")
+logger.critical("critical")
 
 
 
