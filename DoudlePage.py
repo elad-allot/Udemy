@@ -698,15 +698,143 @@
 #     print(i[0])
 #
 
-import logging
-logging.basicConfig(level=logging.DEBUG, format="%(asctime)s,%(msecs)d %(name)s %(levelname)s: %(message)s")
-logger = logging.getLogger("test_logger")
-# logging.basicConfig(level=logging.INFO)
-logger.debug("debug")
-logger.info("info")
-logger.warning("warning")
-logger.error("Error")
-logger.critical("critical")
+# import logging
+# file_name = '%(levelname)s.log'
+# logging.basicConfig(level=logging.DEBUG, format="%(asctime)s,%(msecs)d %(levelname)s: %(message)s", filename=file_name)
+# logger = logging.getLogger("test_logger")
+# # logging.basicConfig(level=logging.INFO)
+# logger.debug("debug")
+# logger.info("info")
+# logger.warning("warning")
+# logger.error("Error")
+# logger.critical("critical")
+#
+#
+#
+#
+#
+# class my_obj:
+#     gap = 5
+#     def __init__(self, num, bla):
+#         self.num = num
+#         self.bla = bla
+#
+#     def __str__(self):
+#         return str(self.num) + ' ' + str(self.bla)
+#
+#     def __repr__(self):
+#         return str(self.num) + ' ' + str(self.bla)
+#
+#     def __hash__(self):
+#         return hash((self.num / self.gap, self.bla))
+#
+#     def __eq__(self, other):
+#         try:
+#             return (self.num, self.bla) == (other.num, other.bla)
+#         except AttributeError:
+#             return NotImplemented
+# #
+# # x = my_obj(123, "a")
+# #
+# # print(x)
+#
+#
+# a = (my_obj(40, "a"), my_obj(50, "b"), my_obj(30, "c"), my_obj(100, "d"), my_obj(72, "e"))
+# b = (my_obj(45, "a"), my_obj(59, "a"), my_obj(38, "a"), my_obj(110, "a"), my_obj(77, "a"))
+#
+# c = set(a).difference(b)
+#
+# print(c)
+#
+#
+#
+# print(True or True)
+# print(True or False)
+# print(False or True)
+# print(False or False)
+#
+# print(not(not True and not True))
+# print(not(not True and not False))
+# print(not(not False and not True))
+# print(not(not False and not False))
+#
+#
+# import random
+#
+#
+# def is_ok(l, x):
+#     if set(x).intersection(set(l)):
+#         return False
+#     if is_following_numbers(x):
+#         return False
+#     return True
+#
+#
+# l = []
+# for i in range(14):
+#     x = sorted(random.sample(range(1, 36), 6))
+#     # y = random.random(range(1, 5))
+#     y = random.randrange(1, 5)
+#     x.append(y)
+#     if is_ok(l, x):
+#         l.append(x)
+#         print(x)
+# print(l)
+#
+#
+# a = [1, 3, 5, 7, 9]  # like
+# b = [2, 4, 6, 8, 0]  # dislike
+#
+# sa = set(a)
+# sb = set(b)
+#
+# c = [1,1,1,1,1, 2, 3, 4, 5, 6, 7, 8, 9, 0, 8, 7, 5, 6, 4, 3, 2, 3, 4, 5, 6, 7, 8, 9]
+# sums = 0
+# for i in c:
+#     if i in sa:
+#         sums +=1
+#     elif i in sb:
+#         sums -=1
+# print(sums)
+#
+# S = "AABCAAADA"
+# N = 3
+#
+# itr = iter(S)
+#
+# x = zip(itr, itr, itr, itr)
+#
+# print(tuple(x))
+#
+#
+# import inspect
+#
+# def add(x, y):
+#     print(inspect.stack()[0][3])
+#     return x + y
+#
+# def sub(x,y):
+#     print()
+#     return x - y
+#
+#
+# commands = {'ADD': add,
+#             'SUB': sub}
+#
+# action = commands['SUB']
+#
+# print(action(1, 3))
+#
+# sql = "select *, case when installed=true then install_date else null end as " \
+#               "install_date1 from etl.patches_version order by installed desc, install_date1, " \
+#               "replace(patch_version, '.', '')::int"
+#
+# print (sql)
 
+strs = ['star-rating', 'One']
 
+r = filter(lambda x: x != 'star-rating', strs)
 
+print(next(r))
+
+print(strs[:10])

@@ -1,4 +1,4 @@
-
+import string
 
 
 def is_palindromes(sentence):
@@ -16,9 +16,11 @@ def is_palindromes(sentence):
     else:
         return False
 
-
+import string
 def is_palindrome_loop(sentence):
     s = sentence.replace(' ', '').lower()
+    s = s.translate(str.maketrans('', '', string.punctuation))
+    print(s)
     while len(s) > 1:
         if s[0] == s[-1]:
             s = s[1:-1]
@@ -28,3 +30,8 @@ def is_palindrome_loop(sentence):
 
 print(is_palindromes('Abc deffedcba'))
 print(is_palindrome_loop('Abc deffedcba'))
+
+b = "asdasd? asdasd. asdasd#$#@#asdasddfrgdfghf!!!@@#sdfsdffdsfds#@@!!!fhgfdgrfddsadsa#@#$#dsadsa .dsadsa ?dsadsa"
+print(is_palindrome_loop(b))
+print(is_palindromes(b))
+
