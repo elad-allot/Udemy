@@ -9,13 +9,6 @@
           </mappings>
         </serverdata>
       </paths>
-      <paths name="Copy of project-level server '10.150.8.11'">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
       <paths name="admin@10.50.37.11:22">
         <serverdata>
           <mappings>
@@ -23,7 +16,35 @@
           </mappings>
         </serverdata>
       </paths>
+      <paths name="dbadmin@10.110.108.50">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="dbadmin@10.110.28.96:22">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="dbadmin@10.110.81.40:22">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
       <paths name="dbadmin@10.150.8.2:22">
+        <serverdata>
+          <mappings>
+            <mapping local="$PROJECT_DIR$" web="/" />
+          </mappings>
+        </serverdata>
+      </paths>
+      <paths name="dbadmin@10.150.8.3">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />
@@ -45,13 +66,6 @@
         </serverdata>
       </paths>
       <paths name="dbadmin@10.152.125.53:22">
-        <serverdata>
-          <mappings>
-            <mapping local="$PROJECT_DIR$" web="/" />
-          </mappings>
-        </serverdata>
-      </paths>
-      <paths name="dbadmin@10.50.40.77:22">
         <serverdata>
           <mappings>
             <mapping local="$PROJECT_DIR$" web="/" />

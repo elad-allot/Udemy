@@ -830,11 +830,167 @@
 #               "replace(patch_version, '.', '')::int"
 #
 # print (sql)
+#
+# strs = ['star-rating', 'One']
+#
+# r = filter(lambda x: x != 'star-rating', strs)
+#
+# print(next(r))
+#
+# print(strs[:10])
 
-strs = ['star-rating', 'One']
 
-r = filter(lambda x: x != 'star-rating', strs)
+selects = ("""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_CMDR_AGG_5MIN;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_CMDR_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_CMDR_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_CONV_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_CONV_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_CONV_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_HDR_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_HDR_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_HDR_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_HDR_AGG_WEEK;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_HTTP_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_HTTP_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_MCAFEEDATA_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_MCAFEEDATA_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_MCAFEEDATA_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_UNSOLICITED_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_SDR_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_SDR_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_SDR_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_VDR_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_VDR_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_VDR_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPACTIVATIONGUIDATA_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPACTIVATIONGUIDATA_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPACTIVATIONGUIDATA_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPACTIVATIONGUI_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPACTIVATIONGUI_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPACTIVATIONGUI_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPADSFREE_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPADSFREE_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPADSFREE_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITLOGIN_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITLOGIN_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITLOGIN_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITMASTERTABLES_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITMASTERTABLES_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITMASTERTABLES_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITUSERS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITUSERS_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUDITUSERS_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUTONOTICE_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUTONOTICE_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPAUTONOTICE_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPBGP_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPBGP_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPBGP_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCONNECT_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCONNECT_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCONNECT_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_ACTIVE_USERS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_APP_NOTIF_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_APP_NOTIF_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_APP_NOTIF_AGG_WEEK;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_BLOCKED_FILES_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_NEW_CUSTOMERS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_PHISHING_SITE_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_PROV_USERS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCP029_UNSUBS_USERS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCUSTOMTRANS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCUSTOMTRANS_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPCUSTOMTRANS_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPFIREWALL_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPFIREWALL_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPFIREWALL_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPFTPPROXY_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPFTPPROXY_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPFTPPROXY_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPIDSIPS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPINTERNAL_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPINTERNAL_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPINTERNAL_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPIPVLANUSER_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPLCBLMAINTENANCE_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPLCBLMAINTENANCE_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPLCBLMAINTENANCE_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPMAIL_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPMAIL_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPMAIL_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPNOTIFICATIONS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPNOTIFICATIONS_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPNOTIFICATIONS_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPPERFORMANCE_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPPERFORMANCE_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPPERFORMANCE_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSEARCHENGINES_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSEARCHENGINES_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSEARCHENGINES_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSERVICEACTIVATION_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSERVICEACTIVATION_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSERVICEACTIVATION_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSSLTRAFFIC_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSSLTRAFFIC_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPSSLTRAFFIC_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPTRAFFIC_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPTRAFFIC_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPTRAFFIC_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPUSERACTIVATION_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPUSERACTIVATION_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPUSERACTIVATION_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPVIDEO_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBBANDWIDTH_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBBANDWIDTH_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBBANDWIDTH_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBNAVIGATION_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBNAVIGATION_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBNAVIGATION_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBPROXY_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBPROXY_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBPROXY_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBQOS_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBQOS_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBQOS_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBTRAFFIC_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBTRAFFIC_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEBTRAFFIC_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEB_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEB_AGG_HOUR;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWEB_AGG_MONTH;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSPWOLFBLACKLISTMAINTENANCE_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSP_LASTACTIVITY_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSP_PERIODIC_AGG_DAY;""",
+"""SELECT min(period_min_key), max(period_min_key) FROM prod.DWH_FACT_WSP_PERIODIC_AGG_HOUR;""")
 
-print(next(r))
 
-print(strs[:10])
+
+for s in selects:
+    s1 = """SELECT min(job_key) as first_agg, max(job_key) as last_agg, count(*) as number_of_aggs , need_to_replace as should_be_about_this_many_aggs from etl.aggregation_jobs where target_table = '%s' and status = 'job_finished';  """
+    if 'AGG_HOUR' in s:
+        s =s.replace("""FROM prod.""", """, count(distinct period_min_key) as num_of_dates, DATEDIFF(hour , min(period_min_key), max(period_min_key)) as num_expected_dated FROM prod.""")
+        s = s.replace('period_min_key', 'period_hour_key')
+        s1 = s1.replace('need_to_replace', """DATE_PART('day', max(job_key) - min(job_key)) * 24 + DATE_PART('hour', max(job_key) - min(job_key))""")
+    elif 'AGG_DAY' in s:
+        s = s.replace("""FROM prod.""",
+                      """, count(distinct period_min_key) as num_of_dates, DATEDIFF(day , min(period_min_key), max(period_min_key)) as num_expected_dated FROM prod.""")
+        s = s.replace('period_min_key', 'period_day_key')
+        s1 = s1.replace('need_to_replace', """DATE_PART('day', max(job_key) - min(job_key))""")
+    elif 'AGG_5MIN' in s:
+        s = s.replace("""FROM prod.""",
+                      """, count(distinct period_min_key) as num_of_dates, DATEDIFF(minute  , min(period_min_key), max(period_min_key))/5 as num_expected_dated FROM prod.""")
+        s = s.replace('period_min_key', 'period_5min_key')
+        s1 = s1.replace('need_to_replace', """((DATE_PART('day', max(job_key) - min(job_key))) *24 + (DATE_PART('hour', max(job_key) - min(job_key))) * 60 + DATE_PART('minute', max(job_key) - min(job_key))) / 5""")
+    elif 'AGG_WEEK' in s:
+        s = s.replace("""FROM prod.""",
+                      """, count(distinct period_min_key) as num_of_dates, DATEDIFF(week , min(period_min_key), max(period_min_key)) as num_expected_dated FROM prod.""")
+        s = s.replace('period_min_key', 'period_week_key')
+        s1 = s1.replace('need_to_replace', """TRUNC(DATE_PART('day', max(job_key) - min(job_key))/7)""")
+    elif 'AGG_MONTH' in s:
+        s = s.replace('FROM prod.',
+                      ', count(distinct period_min_key) as num_of_dates, DATEDIFF(month , min(period_min_key), max(period_min_key)) as num_expected_dated FROM prod.')
+        s = s.replace('period_min_key', 'period_month_key')
+        s1 = s1.replace('need_to_replace', """(DATE_PART('year', max(job_key)::date) - DATE_PART('year', min(job_key)::date)) *12 + (DATE_PART('month', max(job_key)::date) - DATE_PART('month', min(job_key)::date))""")
+    s1 = s1 % s.split('.')[1][:-1]
+    print(s)
+    # print(s1)

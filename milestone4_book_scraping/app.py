@@ -17,8 +17,8 @@ page_content = requests.get(url).content
 page = PageElements(page_content, url)
 cats = page.categorie_list
 
-# books = page.book_product
-# print([b for b in books])
+books = page.book_product
+print([b for b in books])
 
 
 cat_list = ([c for c in cats])
