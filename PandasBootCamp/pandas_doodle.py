@@ -22,5 +22,3 @@ print(titanic.describe())
 
 
 # titanic.sort_values()
-
-
